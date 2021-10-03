@@ -14,35 +14,43 @@ l2abands = ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B8A", "B9", "B11", 
 # offset from image border to sample hard negative mining samples
 HARD_NEGATIVE_MINING_SAMPLE_BORDER_OFFSET = 1000  # meter
 
+
+# data images available (the ones commented out are missing)
 allregions = [
     "accra_20181031",
     "biscay_20180419",
     "danang_20181005",
-    "kentpointfarm_20180710",
+    #"kentpointfarm_20180710",
     "kolkata_20201115",
     "lagos_20190101",
     "lagos_20200505",
-    "london_20180611",
-    "longxuyen_20181102",
-    "mandaluyong_20180314",  
+    #"london_20180611",
+    #"longxuyen_20181102",
+    #"mandaluyong_20180314",  
     "neworleans_20200202",
     "panama_20190425",
-    "portalfredSouthAfrica_20180601",
+    #"portalfredSouthAfrica_20180601",
     "riodejaneiro_20180504",
     "sandiego_20180804",
-    "sanfrancisco_20190219", 
+    #"sanfrancisco_20190219", 
     "shengsi_20190615",
-    "suez_20200403",
-    "tangshan_20180130",
+    #"suez_20200403",
+    #"tangshan_20180130",
     "toledo_20191221",
-    "tungchungChina_20190922",
-    "tunisia_20180715",
-    "turkmenistan_20181030",
+    #"tungchungChina_20190922",
+    #"tunisia_20180715",
+    #"turkmenistan_20181030",
     "venice_20180630",
     "venice_20180928",
     "vungtau_20180423"
     ]
 
+'''
+Function to plit available images in training, testing and validation
+It gets as input the seed and the fractions for the splitting
+
+It returns 3 lists with the corresponding indices 
+'''
 def get_region_split(seed=0, fractions=(0.6, 0.2, 0.2)):
 
     # fix random state

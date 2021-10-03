@@ -13,7 +13,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     print(f"creating {os.path.abspath(args.storepath)}")
-    os.makedirs(args.storepath, exist_ok=True)
+    os.makedirs(args.storepath, exist_ok=True, mode= 0o777)
 
     # download
     print(f"downloading {URL} to {os.path.abspath(args.storepath)}")

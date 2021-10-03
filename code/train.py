@@ -39,9 +39,10 @@ def parse_args():
 
 
 def main(args):
+
+    # parse input parameters
     data_path = args.data_path
     snapshot_path = args.snapshot_path
-
     batch_size = args.batch_size
     workers = args.workers
     image_size = args.image_size
@@ -51,6 +52,7 @@ def main(args):
 
     tensorboard_logdir = args.tensorboard_logdir
 
+    # generate training and validation dataset
     dataset = FloatingSeaObjectDataset(data_path, fold="train", transform=get_transform("train", intensity=args.augmentation_intensity, add_fdi_ndvi=args.add_fdi_ndvi),
                                        output_size=image_size, seed=args.seed)
     valid_dataset = FloatingSeaObjectDataset(data_path, fold="val", transform=get_transform("test", add_fdi_ndvi=args.add_fdi_ndvi),
@@ -258,6 +260,8 @@ def compute_class_occurences(train_loader):
     return sum_no_floating, sum_floating
 
 
+# start the training of the model, using 
+# the provided parameters in main.py
 if __name__ == '__main__':
     args = parse_args()
     '''

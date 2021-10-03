@@ -2,7 +2,14 @@ import argparse
 from train import main as train
 import os
 
+'''
+Main file to start the training or the testing of a model
+Include the flags to set the initial arguments
+'''
 def main(args):
+    
+    # training flag: start the training of the model
+    # generates the model directory and one for the tensorboard results
     if args.mode == "train":
         for seed in range(5):
             args.seed = seed
@@ -13,6 +20,7 @@ def main(args):
             train(args)
     elif args.mode == "predict":
         raise NotImplementedError("here all images should be predicted in a loop using the models trained before")
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
